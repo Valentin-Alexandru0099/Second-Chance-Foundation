@@ -2,7 +2,7 @@
 
 
 .css-khgpfn-MuiPaper-root-MuiAppBar-root{
-    background-color: #f7d7b5 !important;
+    background-color: #351c75 !important;
 }
 
 .links{
@@ -13,7 +13,7 @@
     text-align: center;
     margin: 0 auto;
     padding: 10px 0;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .nav{
@@ -24,7 +24,7 @@
     position: absolute;
     bottom:0px;
     left:50%;
-    background-color: #000;
+    background-color: rgb(255, 255, 255);
     opacity:0.5;
     content:'';
     height:2px;
@@ -35,7 +35,7 @@
     position: absolute;
     bottom:0px;
     right:50%;
-    background-color: #000;
+    background-color: rgb(255, 255, 255);
     opacity:0.5;
     content:'';
     height:2px;
@@ -57,7 +57,7 @@
     text-align: center;
     margin: 0 auto;
     padding: 10px 0;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .nav{
@@ -68,7 +68,7 @@
     position: absolute;
     bottom:0px;
     left:50%;
-    background-color: #000;
+    background-color: rgb(255, 255, 255);
     opacity:0.5;
     content:'';
     height:2px;
@@ -79,7 +79,7 @@
     position: absolute;
     bottom:0px;
     right:50%;
-    background-color: #000;
+    background-color: rgb(255, 255, 255);
     opacity:0.5;
     content:'';
     height:2px;
