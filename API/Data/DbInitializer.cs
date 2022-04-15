@@ -8,13 +8,13 @@ namespace API.Data
         {
             public static void Initialize(StoreContext context)
             {
-            if (context.Event.Any()) return;
-            var events = new List<Event> {
+            if (context.Meets.Any()) return;
+            var meets = new List<Meet> {
                 
             };
-            foreach (var ev in events)
+            foreach (var meet in meets)
                 {
-                    context.Event.Add(ev);
+                    context.Meets.Add(meet);
                 }
                 context.SaveChanges();
             }

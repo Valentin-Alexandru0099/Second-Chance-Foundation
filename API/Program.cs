@@ -1,6 +1,6 @@
 using System;
 using API;
-// using API.Data;
+using API.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,17 +15,17 @@ namespace WebApplication1
         {
             var host = CreateHostBuilder(args).Build();
             using var scope = host.Services.CreateScope();
-            // var context = scope.ServiceProvider.GetRequiredService<StoreContext>();
+            var context = scope.ServiceProvider.GetRequiredService<StoreContext>();
             var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-            // try 
-            // {
-            //     context.Database.Migrate();
-            //     DbInitializer.Initialize(context);
-            // }
-            // catch (Exception ex)
-            // {
-            //     logger.LogError(ex, "Problem migrating data");
-            // }
+            try
+            {
+                context.Database.Migrate();
+                DbInitializer.Initialize(context);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Problem migrating data");
+            }
 
             host.Run();
         }

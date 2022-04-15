@@ -2,8 +2,8 @@
 {
     public enum Status
     {
-        Closed,
+        Past,
         Ongoing,
-        UpComming,
+        Upcoming,
     }
 }
