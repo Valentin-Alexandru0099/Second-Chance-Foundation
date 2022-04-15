@@ -11,6 +11,7 @@ import { useForm } from 'react-hook-form';
 import { LoadingButton } from '@mui/lab';
 import agent from '../../features/api/agent';
 import { toast } from 'react-toastify';
+import './Login.css';
 
 export default function Register() {
     const history = useHistory();
@@ -101,7 +102,7 @@ export default function Register() {
                 </LoadingButton>
                 <Grid container>
                     <Grid item>
-                        <Link to='/login' className='loginlink'>
+                        <Link to='/login' className='registerlink'>
                             {"Already have an account? Sign In"}
                         </Link>
                     </Grid>

@@ -2,9 +2,14 @@ export interface Job {
     id: number;
     name: string;
     description: string;
-    price: number;
-    pictureUrl: string;
-    type?: string;
-    brand: string;
-    quantityInStock?: number;
+    SubmissionTime: Date;
+    available: boolean;
+    organization: Organization;
+}
+
+export interface Organization{
+    id: number;
+    name: string;
+    description: string;
+    website: string;
 }

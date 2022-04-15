@@ -60,8 +60,14 @@ const Account ={
     fetchAddress: () => requests.get('account/savedAddress')
 }
 
+const Job ={
+    getAllJobs: (params?: URLSearchParams) => requests.get('job', params),
+    details: (id: number) => requests.get(`job/${id}`),
+}
+
 const agent = {
     Account,
+    Job
 }
 
 

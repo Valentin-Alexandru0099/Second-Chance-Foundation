@@ -7,7 +7,7 @@ const midLinks=[
     {title: 'meetings', path: '/meetings'},
     {title: 'about ', path: '/about'},
     { title: 'contact', path: '/contact' },
-    {title: 'jobs', path: '/custom'},
+    {title: 'jobs', path: '/jobs'},
     {title: 'donate', path: '/donate'},
 ]
 

@@ -1,5 +1,6 @@
 import { Button, Container, Divider, Paper, Typography } from "@mui/material";
 import { useHistory, useLocation } from "react-router";
+import './ServerError.css';
 
 export default function ServerError() {
     const history = useHistory();

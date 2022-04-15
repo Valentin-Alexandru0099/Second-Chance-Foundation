@@ -9,6 +9,7 @@ import NotFound from './features/errors/NotFound';
 import ServerError from './features/errors/ServerError';
 import Login from './pages/account/Login';
 import Register from './pages/account/Register';
+import Jobpage from './pages/job/Jobpage';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route exact path='/server-error' component={ServerError}></Route>
         <Route exact path='/login' component={Login}></Route>
         <Route exact path='/register' component={Register}></Route>
+        <Route exact path='/jobs' component={Jobpage}></Route>
         </Switch>
       <Footer/>
         
