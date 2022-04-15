@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20220415195413_InitDB")]
-    partial class InitDB
+    [Migration("20220415202511_PopulateJobs")]
+    partial class PopulateJobs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
