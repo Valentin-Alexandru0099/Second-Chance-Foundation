@@ -20,16 +20,17 @@ namespace API.Data
 
                     await userManager.CreateAsync(user, "Pa$$w0rd");
                     await userManager.AddToRoleAsync(user, "Member");
-                }
 
-                var admin = new User
+                    var admin = new User
                     {
                         UserName = "admin",
                         Email = "admin@test.com"
                     };
-
+                    
                     await userManager.CreateAsync(admin, "Pa$$w0rd");
                     await userManager.AddToRolesAsync(admin, new[] {"Member", "Admin"});
+                }
+
 
                 if (context.Meets.Any()) return;
                 if (context.Jobs.Any()) return;
@@ -48,9 +49,9 @@ namespace API.Data
                 };
 
                 foreach (var meet in meets)
-                    {
-                        context.Meets.Add(meet);
-                    }
+                {
+                    context.Meets.Add(meet);
+                }
                 context.SaveChanges();
             }
         }
