@@ -5,6 +5,8 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
+import NotFound from './features/errors/NotFound';
+import ServerError from './features/errors/ServerError';
 
 export default function App() {
   return (
@@ -14,6 +16,8 @@ export default function App() {
         <Route exact path='/' component={Homepage}></Route>
         <Route exact path='/contact' component={Contact}></Route>
         <Route exact path='/about' component={About}></Route>
+        <Route exact path='/not-found' component={NotFound}></Route>
+        <Route exact path='/server-error' component={ServerError}></Route>
         </Switch>
       <Footer/>
         
