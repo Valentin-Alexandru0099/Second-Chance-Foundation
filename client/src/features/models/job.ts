@@ -2,7 +2,7 @@ export interface Job {
     id: number;
     name: string;
     description: string;
-    SubmissionTime: Date;
+    SubmissionTime: string;
     available: boolean;
     organization: Organization;
 }

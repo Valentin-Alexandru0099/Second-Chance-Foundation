@@ -61,4 +61,4 @@ export const jobSlice = createSlice({
     })
 })
 
-export const productSelectors = jobsAdapter.getSelectors((state: RootState) => state.job);
+export const jobSelectors = jobsAdapter.getSelectors((state: RootState) => state.job);
