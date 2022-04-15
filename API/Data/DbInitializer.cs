@@ -12,12 +12,10 @@ namespace API.Data
             var events = new List<Event> {
                 
             };
-
             foreach (var ev in events)
                 {
                     context.Event.Add(ev);
                 }
-
                 context.SaveChanges();
             }
         }
