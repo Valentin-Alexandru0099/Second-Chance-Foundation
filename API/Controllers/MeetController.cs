@@ -22,7 +22,9 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Meet>> GetMeet(int id)
         {
-            return await _context.Meets.FindAsync(id);
+            var meet = await _context.Meets.FindAsync(id);
+            if (meet == null) return NotFound();
+            return meet;
         }
     }
 }

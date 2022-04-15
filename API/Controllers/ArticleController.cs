@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    public class ArticleController
+    public class ArticleController : BaseApiController
     {
         private readonly StoreContext _context;
         public ArticleController(StoreContext context)
@@ -22,7 +22,10 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Article>> GetArticle(int id)
         {
-            return await _context.Articles.FindAsync(id);
+            var article = await _context.Articles.FindAsync(id);
+            if (article == null) return NotFound();
+            return article;
         }
+
     }
 }

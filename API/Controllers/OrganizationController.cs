@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    public class OrganizationController
+    public class OrganizationController : BaseApiController
     {
         private readonly StoreContext _context;
         public OrganizationController(StoreContext context)
@@ -22,7 +22,9 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Organization>> GetOrganization(int id)
         {
-            return await _context.Organizations.FindAsync(id);
+            var organization = await _context.Organizations.FindAsync(id);
+            if (organization == null) return NotFound();
+            return organization;
         }
     }
 }

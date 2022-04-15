@@ -22,7 +22,10 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Job>> GetJob(int id)
         {
-            return await _context.Jobs.FindAsync(id);
+            var job = await _context.Jobs.FindAsync(id);
+            if (job == null) return NotFound();
+            return job;
+
         }
 
     }
