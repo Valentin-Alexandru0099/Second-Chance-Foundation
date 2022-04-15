@@ -7,6 +7,8 @@ import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 import NotFound from './features/errors/NotFound';
 import ServerError from './features/errors/ServerError';
+import Login from './pages/account/Login';
+import Register from './pages/account/Register';
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
         <Route exact path='/about' component={About}></Route>
         <Route exact path='/not-found' component={NotFound}></Route>
         <Route exact path='/server-error' component={ServerError}></Route>
+        <Route exact path='/login' component={Login}></Route>
+        <Route exact path='/register' component={Register}></Route>
         </Switch>
       <Footer/>
         

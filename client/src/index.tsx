@@ -5,16 +5,16 @@ import App from './App'
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { Provider } from 'react-redux';
-// import { store } from './features/store/configureStore';
+import { store } from './features/store/configureStore';
 
 export const history = createBrowserHistory();
 
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
-      {/* <Provider store={store}> */}
+      <Provider store={store}>
         <App />
-      {/* </Provider> */}
+      </Provider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
