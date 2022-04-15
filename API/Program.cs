@@ -1,7 +1,6 @@
 using System;
 using API;
 using API.Data;
-// using API.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +17,7 @@ namespace WebApplication1
             using var scope = host.Services.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<StoreContext>();
             var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-            try 
+            try
             {
                 context.Database.Migrate();
                 DbInitializer.Initialize(context);

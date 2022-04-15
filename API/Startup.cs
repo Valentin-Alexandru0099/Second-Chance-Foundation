@@ -28,8 +28,8 @@ namespace API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
-            services.AddDbContext<StoreContext>(opt => 
-            {
+             services.AddDbContext<StoreContext>(opt => 
+             {
                 opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
             });
         }

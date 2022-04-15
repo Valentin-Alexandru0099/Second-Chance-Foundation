@@ -9,10 +9,10 @@ namespace API.Data
         {
         }
 
-        public DbSet<Articles> Articles { get; set; }
-        public DbSet<Events> Events { get; set; }
-        public DbSet<Organizations> Organizations { get; set; }
-        public DbSet<User> User { get; set; }
-
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<Meet> Meets { get; set; }
+        public DbSet<Job> Jobs { get; set; }
+        public DbSet<Organization> Organizations { get; set; }
+        public DbSet<UserAplication> UserAplications { get; set; }
     }
 }
