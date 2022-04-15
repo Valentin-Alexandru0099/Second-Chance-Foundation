@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20220415170617_JobAdded")]
-    partial class JobAdded
+    [Migration("20220415225047_Test")]
+    partial class Test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,7 +60,7 @@ namespace API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<int?>("OrganizationId")
+                    b.Property<int>("OrganizationId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("SubmissionTime")
@@ -87,14 +87,8 @@ namespace API.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<TimeOnly>("EndTime")
-                        .HasColumnType("time without time zone");
-
                     b.Property<string>("Name")
                         .HasColumnType("text");
-
-                    b.Property<TimeOnly>("StartTime")
-                        .HasColumnType("time without time zone");
 
                     b.Property<int>("Status")
                         .HasColumnType("integer");
@@ -237,15 +231,15 @@ namespace API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e9bcdec8-fc29-4ead-a3ed-c9ef7421a52b",
-                            ConcurrencyStamp = "e7db9d2d-48b3-46aa-a081-4a4b1b280372",
+                            Id = "45358e8a-7820-48f0-a689-1ba406c5844b",
+                            ConcurrencyStamp = "1773bd14-c225-48a9-a4d7-62ef0e13a4e5",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = "162a8640-f0b2-4106-beac-2564762ffd3c",
-                            ConcurrencyStamp = "43780f35-cbfb-43a1-ac3b-a81d835fb2a3",
+                            Id = "b6001d35-3f59-4743-a24a-3cd362643066",
+                            ConcurrencyStamp = "e163abb5-0d66-4123-a883-0a914ea37093",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -360,8 +354,10 @@ namespace API.Migrations
             modelBuilder.Entity("API.Entities.Job", b =>
                 {
                     b.HasOne("API.Entities.Organization", "Organization")
-                        .WithMany()
-                        .HasForeignKey("OrganizationId");
+                        .WithMany("Jobs")
+                        .HasForeignKey("OrganizationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Organization");
                 });
@@ -415,6 +411,11 @@ namespace API.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("API.Entities.Organization", b =>
+                {
+                    b.Navigation("Jobs");
                 });
 #pragma warning restore 612, 618
         }

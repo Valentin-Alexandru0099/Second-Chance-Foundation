@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20220415221707_Meets")]
+    partial class Meets
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,7 +60,7 @@ namespace API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<int>("OrganizationId")
+                    b.Property<int?>("OrganizationId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("SubmissionTime")
@@ -229,15 +231,15 @@ namespace API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "45358e8a-7820-48f0-a689-1ba406c5844b",
-                            ConcurrencyStamp = "1773bd14-c225-48a9-a4d7-62ef0e13a4e5",
+                            Id = "4b572cd2-bb07-44d5-8857-a38469ee466a",
+                            ConcurrencyStamp = "b7ac871f-4c22-4069-aee7-30267bc23243",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = "b6001d35-3f59-4743-a24a-3cd362643066",
-                            ConcurrencyStamp = "e163abb5-0d66-4123-a883-0a914ea37093",
+                            Id = "ee76f4e7-0b55-4e11-83d9-6385c425bf89",
+                            ConcurrencyStamp = "44313fa1-8ec2-4d90-ab6b-808197d9ea5b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -353,9 +355,7 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Entities.Organization", "Organization")
                         .WithMany("Jobs")
-                        .HasForeignKey("OrganizationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrganizationId");
 
                     b.Navigation("Organization");
                 });

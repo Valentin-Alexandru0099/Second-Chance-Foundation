@@ -69,7 +69,31 @@ namespace API.Data
                 {
                     context.Jobs.Add(job);
                 }
-                context.SaveChanges();
+
+            var meets = new List<Meet>
+            {
+                new Meet
+                {
+                    Name="Meet Marti",
+                    Description="Meeting saptamanal!",
+                    Date=DateTime.Now.SetKindUtc(),
+                    Status=Status.Upcoming,
+                 },
+                new Meet
+                {
+                    Name="Meet Miercuri",
+                    Description="Meeting saptamanal!",
+                    Date=DateTime.Now.SetKindUtc(),
+                    Status=Status.Upcoming,
+                 },
+
+            };
+
+            foreach (var meet in meets)
+            {
+                context.Meets.Add(meet);
+            }
+            context.SaveChanges();
 
             }
         }

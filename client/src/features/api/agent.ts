@@ -65,9 +65,23 @@ const Job ={
     details: (id: number) => requests.get(`job/${id}`),
 }
 
+const Organization ={
+    getAllOrganizations: (params?: URLSearchParams) => requests.get('organization', params),
+    details: (id: number) => requests.get(`organization/${id}`),
+}
+
+const Meetings = {
+    list: () => requests.get('meet'),
+    fetch: (id: number) => requests.get(`meet/${id}`),
+    create: (values: any) => requests.post('meet', values)
+}
+
+
 const agent = {
     Account,
-    Job
+    Job,
+    Organization,
+    Meetings
 }
 
 

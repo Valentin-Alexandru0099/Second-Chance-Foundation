@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace API.Migrations
 {
-    public partial class JobAdded : Migration
+    public partial class Meets : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -72,9 +72,7 @@ namespace API.Migrations
                     Name = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
                     Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    Status = table.Column<int>(type: "integer", nullable: false),
-                    StartTime = table.Column<TimeOnly>(type: "time without time zone", nullable: false),
-                    EndTime = table.Column<TimeOnly>(type: "time without time zone", nullable: false)
+                    Status = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -243,8 +241,8 @@ namespace API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "162a8640-f0b2-4106-beac-2564762ffd3c", "43780f35-cbfb-43a1-ac3b-a81d835fb2a3", "Admin", "ADMIN" },
-                    { "e9bcdec8-fc29-4ead-a3ed-c9ef7421a52b", "e7db9d2d-48b3-46aa-a081-4a4b1b280372", "Member", "MEMBER" }
+                    { "4b572cd2-bb07-44d5-8857-a38469ee466a", "b7ac871f-4c22-4069-aee7-30267bc23243", "Member", "MEMBER" },
+                    { "ee76f4e7-0b55-4e11-83d9-6385c425bf89", "44313fa1-8ec2-4d90-ab6b-808197d9ea5b", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.CreateIndex(

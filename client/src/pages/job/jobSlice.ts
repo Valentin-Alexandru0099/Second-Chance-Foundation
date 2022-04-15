@@ -36,7 +36,7 @@ export const jobSlice = createSlice({
     reducers: {},
     extraReducers: (builder => {
         builder.addCase(fetchJobsAsync.pending, (state) => {
-            state.status = 'pendingFetchProducts';
+            state.status = 'pendingFetchJobs';
         });
         builder.addCase(fetchJobsAsync.fulfilled, (state, action) => {
             jobsAdapter.setAll(state, action.payload);
@@ -48,7 +48,7 @@ export const jobSlice = createSlice({
             state.status = 'idle';
         });
         builder.addCase(fetchJobAsync.pending, (state) => {
-            state.status = 'pendingFetchProduct';
+            state.status = 'pendingFetchJob';
         });
         builder.addCase(fetchJobAsync.fulfilled, (state, action) => {
             jobsAdapter.upsertOne(state, action.payload);
