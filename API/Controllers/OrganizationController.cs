@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    public class MeetController : BaseApiController
+    public class OrganizationController
     {
         private readonly StoreContext _context;
-        public MeetController(StoreContext context)
+        public OrganizationController(StoreContext context)
         {
             _context = context;
         }
         [HttpGet]
-        public async Task<ActionResult<List<Meet>>> GetAllMeets()
+        public async Task<ActionResult<List<Organization>>> GetAllOrganizations()
         {
-            return await _context.Meets.ToListAsync();
+            return await _context.Organizations.ToListAsync();
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Meet>> GetMeet(int id)
+        public async Task<ActionResult<Organization>> GetOrganization(int id)
         {
-            return await _context.Meets.FindAsync(id);
+            return await _context.Organizations.FindAsync(id);
         }
     }
 }
