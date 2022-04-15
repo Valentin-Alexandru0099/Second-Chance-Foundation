@@ -3,6 +3,7 @@ import second from '../../images/video.mp4';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import happy from '../../images/jobs.jpg';
+import 'animate.css';
 
 AOS.init();
 
@@ -12,7 +13,7 @@ export default function Homepage(){
         
         <div >
             <img src={happy} className='homepageimg'></img>
-            <button className="animate__animated animate__backInDown btn">Button</button>
+            <button className="animate__animated animate__backInDown btn">Learn more!</button>
         </div>
 
         <div data-aos="fade-right">
