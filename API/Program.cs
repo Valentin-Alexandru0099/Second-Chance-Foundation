@@ -1,4 +1,5 @@
 using System;
+using API;
 using API.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace WebApplication1
 {
-    public class Program
+     public class Program
     {
         public static void Main(string[] args)
         {
