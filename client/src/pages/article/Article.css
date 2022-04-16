@@ -1,15 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+.css-h93ljk-MuiTypography-root{
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 30px !important;
+}
+
+
 .css-46bh2p-MuiCardContent-root{
     max-height: 200px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1em;
 }
 
 .css-r40f8v-MuiTypography-root{
+    margin-top:20px;
     overflow-y: scroll;
     max-height: 300px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1em;
 }
 
 .articlecards{
     flex-direction: row;
     display: flex;
     flex-direction: row;
-    margin-bottom: 150px;;
+    margin-bottom: 150px;
+    gap: 15px;
+    font-family: 'Lato', sans-serif;
+
+}
+
+.css-bhp9pd-MuiPaper-root-MuiCard-root{
+    width: 100%;
+    margin: 10px;
+}
+
+.css-46bh2p-MuiCardContent-root{
+    max-height: 500px !important;
 }

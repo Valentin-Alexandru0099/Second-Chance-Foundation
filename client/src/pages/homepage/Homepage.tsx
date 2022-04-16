@@ -16,7 +16,9 @@ export default function Homepage(){
         <>
         
         <div >
+        <div data-aos="zoom-in">
             <img src={happy} className='homepageimg'></img>
+            </div>
             <button onClick={() => history.push('/about')} className="animate__animated animate__backInDown btn">Learn more!</button>
         </div>
 

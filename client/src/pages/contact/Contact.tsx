@@ -24,6 +24,10 @@ export default function Contact() {
                     <LocalPhoneTwoToneIcon/>
                     <p className="phonetext">Phone: +4024414670 </p>
                 </div>
+                <div className="centerdiv">
+                    <LocalPhoneTwoToneIcon/>
+                    <p className="phonetext">Phone: +4024414670 </p>
+                </div>
         </>
     )
 }
