@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace API.Migrations
 {
-    public partial class Meets : Migration
+    public partial class Articles : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -224,7 +224,7 @@ namespace API.Migrations
                     Description = table.Column<string>(type: "text", nullable: true),
                     SubmissionTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Available = table.Column<bool>(type: "boolean", nullable: false),
-                    OrganizationId = table.Column<int>(type: "integer", nullable: true)
+                    OrganizationId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -233,7 +233,8 @@ namespace API.Migrations
                         name: "FK_Jobs_Organizations_OrganizationId",
                         column: x => x.OrganizationId,
                         principalTable: "Organizations",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -241,8 +242,8 @@ namespace API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4b572cd2-bb07-44d5-8857-a38469ee466a", "b7ac871f-4c22-4069-aee7-30267bc23243", "Member", "MEMBER" },
-                    { "ee76f4e7-0b55-4e11-83d9-6385c425bf89", "44313fa1-8ec2-4d90-ab6b-808197d9ea5b", "Admin", "ADMIN" }
+                    { "5d147d40-4d71-46e4-bb1b-9a30cb032d63", "4688eec1-f26c-4f33-b77c-f01b06c00462", "Member", "MEMBER" },
+                    { "79b5697a-6d7c-4685-aa0b-490abaf0baa5", "5f162bd0-56fc-4a0a-b3a2-7578eef05fe0", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.CreateIndex(

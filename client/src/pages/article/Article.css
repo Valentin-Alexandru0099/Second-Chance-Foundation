@@ -1,0 +1,14 @@
+.css-46bh2p-MuiCardContent-root{
+    max-height: 200px;
+}
+
+.css-r40f8v-MuiTypography-root{
+    overflow: scroll;
+    max-height: 300px;
+}
+
+.articlecards{
+    flex-direction: row;
+    display: flex;
+    flex-direction: row;
+}

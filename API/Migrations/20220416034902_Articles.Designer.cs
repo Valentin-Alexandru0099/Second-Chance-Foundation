@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20220415225047_Test")]
-    partial class Test
+    [Migration("20220416034902_Articles")]
+    partial class Articles
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -231,15 +231,15 @@ namespace API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "45358e8a-7820-48f0-a689-1ba406c5844b",
-                            ConcurrencyStamp = "1773bd14-c225-48a9-a4d7-62ef0e13a4e5",
+                            Id = "5d147d40-4d71-46e4-bb1b-9a30cb032d63",
+                            ConcurrencyStamp = "4688eec1-f26c-4f33-b77c-f01b06c00462",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = "b6001d35-3f59-4743-a24a-3cd362643066",
-                            ConcurrencyStamp = "e163abb5-0d66-4123-a883-0a914ea37093",
+                            Id = "79b5697a-6d7c-4685-aa0b-490abaf0baa5",
+                            ConcurrencyStamp = "5f162bd0-56fc-4a0a-b3a2-7578eef05fe0",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

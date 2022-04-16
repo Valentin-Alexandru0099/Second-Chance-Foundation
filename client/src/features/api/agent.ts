@@ -77,11 +77,18 @@ const Meetings = {
 }
 
 
+const Article = {
+    list: () => requests.get('article'),
+    fetch: (id: number) => requests.get(`article/${id}`),
+    create: (values: any) => requests.post('article', values)
+}
+
 const agent = {
     Account,
     Job,
     Organization,
-    Meetings
+    Meetings,
+    Article
 }
 
 

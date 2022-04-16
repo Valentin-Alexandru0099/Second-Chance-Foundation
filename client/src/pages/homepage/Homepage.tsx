@@ -4,16 +4,20 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import happy from '../../images/jobs.jpg';
 import 'animate.css';
+import { Link, useHistory } from 'react-router-dom';
+import Article from '../article/Article';
 
 AOS.init();
 
+
 export default function Homepage(){
+    const history = useHistory();
     return(
         <>
         
         <div >
             <img src={happy} className='homepageimg'></img>
-            <button className="animate__animated animate__backInDown btn">Learn more!</button>
+            <button onClick={() => history.push('/about')} className="animate__animated animate__backInDown btn">Learn more!</button>
         </div>
 
         <div data-aos="fade-right">
@@ -32,6 +36,7 @@ export default function Homepage(){
                 <source src={second} type="video/mp4" />
                 </video>
             </div>
+            <Article/>
         </div>
         
                 
