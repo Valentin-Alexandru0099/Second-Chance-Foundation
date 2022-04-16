@@ -5,7 +5,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { useFormContext } from 'react-hook-form';
 import AppTextInput from '../../components/AppTextInput';
-import { CardCvcElement, CardExpiryElement, CardNumberElement } from '@stripe/react-stripe-js';
+import CardExpiryElement from "@stripe/react-stripe-js";
+
 import { StripeInput } from './StripeInputs';
 import { StripeElementType } from '@stripe/stripe-js';
 

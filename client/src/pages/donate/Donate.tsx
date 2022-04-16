@@ -4,10 +4,12 @@ import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import PaymentForm from "./PaymentForm";
 import { LoadingButton } from "@mui/lab";
 import { StripeElementType } from "@stripe/stripe-js";
-import { CardNumberElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import AddressForm from "./AdressForm";
 import agent from "../../features/api/agent";
 import { useAppDispatch, useAppSelector } from "../../features/store/configureStore";
+import useStripe, { CardNumberElement } from "@stripe/react-stripe-js";
+import { useElements } from "@stripe/react-stripe-js";
+// import { useElements } from "@stripe/react-stripe-js";
 
 const steps = ['Shipping address', 'Review your order', 'Payment details'];
 
@@ -62,7 +64,8 @@ export default function Donate() {
     }, [methods])
 
     async function submitOrder(data: FieldValues) {
-        var clientSecret = agent.Payments.getClientSecret();
+        var clientSecret = await agent.Payments.getClientSecret();
+        console.log(clientSecret);
         setLoading(true);
         const { nameOnCard, saveAddress, ...shippingAddress } = data;
         if (!stripe || !elements) return; // stripe not ready

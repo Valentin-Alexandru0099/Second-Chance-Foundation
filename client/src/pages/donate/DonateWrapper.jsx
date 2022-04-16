@@ -1,14 +1,13 @@
-
+import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useEffect, useState } from "react";
-import LoadingComponent from "../../components/LoadingComponent";
-import agent from "../../features/api/agent";
-import { useAppDispatch } from "../../features/store/configureStore";
-import Donate from "./Donate";
-import {Elements} from 'react-stripe-elements';
+import agent from "../../app/api/agent";
+import LoadingComponent from "../../app/layout/LoadingComponent";
+import { useAppDispatch } from "../../app/store/configureStore";
+import { setBasket } from "../basket/basketSlice";
+import Donate from '../donate/Donate';
 
-
-const stripePromise = loadStripe("pk_test_51Kp8FMFZPLb2Hf6PKyATbp7RDCtdrf5g66CiiDmjiaATB5Me4RDbBpa429bC8Mw0xWViuFe9z6dHXdTUlzd5fpDk00A938FoB8")
+const stripePromise = loadStripe("pk_test_51IzwHFErFg8RLNropkfWpnL37TzyR3eTpn0vY0EmatAeBwxlNPFJT2e2VtfIt2V8975y2W7kC1gcQ5tB5B332Y2x00yktsLIxN")
 
 export default function CheckoutWrapper() {
     const dispatch = useAppDispatch();
@@ -16,10 +15,10 @@ export default function CheckoutWrapper() {
 
     useEffect(() => {
         agent.Payments.createPaymentIntent()
+            .then(basket => dispatch(setBasket(basket)))
             .catch(error => console.log(error))
             .finally(() => setLoading(false));
     }, [dispatch]);
-
 
     if (loading) return <LoadingComponent message='Loading checkout...' />
 
@@ -28,4 +27,5 @@ export default function CheckoutWrapper() {
             <Donate />
         </Elements>
     )
+}
 }
