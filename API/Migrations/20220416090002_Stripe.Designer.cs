@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20220416090002_Stripe")]
+    partial class Stripe
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -229,15 +231,15 @@ namespace API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "62d9d6d6-628b-42bc-974b-a5d81c6044f8",
-                            ConcurrencyStamp = "626e5b43-0837-4869-aa59-373e4a242edc",
+                            Id = "cdaac094-90e0-4fce-96db-8c15c6253df3",
+                            ConcurrencyStamp = "d46f1d4b-ce07-4fdf-8ac2-3934e362315b",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = "0860e48e-6b86-4c53-b8ce-bc823f457381",
-                            ConcurrencyStamp = "c7cba22f-6ceb-4594-8b97-df9fd1fd5320",
+                            Id = "5f9df7e3-1fe6-433e-ae20-c14f0b7089cd",
+                            ConcurrencyStamp = "c1845e74-42f9-492f-9bac-bd8d82bc9f25",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

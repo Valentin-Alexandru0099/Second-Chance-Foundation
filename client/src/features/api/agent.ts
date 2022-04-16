@@ -83,12 +83,25 @@ const Article = {
     create: (values: any) => requests.post('article', values)
 }
 
+const Donations = {
+    list: () => requests.get('donation'),
+    fetch: (id: number) => requests.get(`donation/${id}`),
+    create: (values: any) => requests.post('donation', values)
+}
+
+const Payments = {
+    createPaymentIntent: () => requests.post('payments', {}),
+    getClientSecret: () => requests.get('payments')
+}
+
 const agent = {
     Account,
     Job,
     Organization,
     Meetings,
-    Article
+    Article,
+    Donations,
+    Payments
 }
 
 

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20220416034902_Articles")]
-    partial class Articles
+    [Migration("20220416091416_StripeAdd")]
+    partial class StripeAdd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -231,15 +231,15 @@ namespace API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5d147d40-4d71-46e4-bb1b-9a30cb032d63",
-                            ConcurrencyStamp = "4688eec1-f26c-4f33-b77c-f01b06c00462",
+                            Id = "62d9d6d6-628b-42bc-974b-a5d81c6044f8",
+                            ConcurrencyStamp = "626e5b43-0837-4869-aa59-373e4a242edc",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = "79b5697a-6d7c-4685-aa0b-490abaf0baa5",
-                            ConcurrencyStamp = "5f162bd0-56fc-4a0a-b3a2-7578eef05fe0",
+                            Id = "0860e48e-6b86-4c53-b8ce-bc823f457381",
+                            ConcurrencyStamp = "c7cba22f-6ceb-4594-8b97-df9fd1fd5320",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
