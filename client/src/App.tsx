@@ -19,7 +19,7 @@ import Meetings from './pages/meetings/Meetings';
 import PrivateRoute from './components/PrivateRoute';
 import Profile from './pages/profile/Profile';
 import MeetingDetails from './pages/meetings/MeetingDetails';
-import Donate from './pages/donate/Donate';
+import DonatePage from './pages/donate/DonatePage';
 import { loadStripe } from '@stripe/stripe-js';
 
 
@@ -56,7 +56,7 @@ export default function App() {
         <Route exact path='/register' component={Register}></Route>
         <Route exact path='/jobs' component={Jobpage}></Route>
         <Route exact path='/meetings' component={Meetings}></Route>
-        <Route exact path='/donate' component={Donate}></Route>
+        <Route exact path='/donate' component={DonatePage}></Route>
         <Route exact path='/meetingdetails' component={MeetingDetails}></Route>
         {/* <PrivateRoute path='/applications' component={Applications} /> */}
         <PrivateRoute path='/profile' component={Profile} />
