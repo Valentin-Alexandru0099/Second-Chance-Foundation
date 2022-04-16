@@ -3,11 +3,7 @@ import { useEffect, useState } from "react";
 import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import AddressForm from "./AdressForm";
 import PaymentForm from "./PaymentForm";
-import Review from "./Review";
-import { yupResolver } from '@hookform/resolvers/yup';
-import { validationSchema } from "./checkoutValidation";
 import agent from "../../features/api/agent";
-import { clearBasket } from "../basket/basketSlice";
 import { LoadingButton } from "@mui/lab";
 import { useAppDispatch, useAppSelector } from "../../features/store/configureStore";
 import { StripeElementType } from "@stripe/stripe-js";
@@ -17,14 +13,12 @@ const steps = ['Adresa de livrare', 'Verifica-ti comanda', 'Detalii plata'];
 
 export default function Donate() {
     const [activeStep, setActiveStep] = useState(0);
-    const [orderNumber, setOrderNumber] = useState(0);
     const [loading, setLoading] = useState(false);
     const dispatch = useAppDispatch();
     const [cardState, setCardState] = useState<{ elementError: { [key in StripeElementType]?: string } }>({ elementError: {} });
     const [cardComplete, setCardComplete] = useState<any>({ cardNumber: false, cardExpiry: false, cardCvc: false });
     const [paymentMessage, setPaymentMessage] = useState('');
     const [paymentSucceeded, setPaymentSucceeded] = useState(false);
-    const { basket } = useAppSelector(state => state.basket);
     const stripe = useStripe();
     const elements = useElements();
 
@@ -44,19 +38,14 @@ export default function Donate() {
             case 0:
                 return <AddressForm />;
             case 1:
-                return <Review />;
-            case 2:
                 return <PaymentForm cardState={cardState} onCardInputChange={onCardInputChange} />;
             default:
                 throw new Error('Unknown step');
         }
     }
 
-    const currentValidationSchema = validationSchema[activeStep];
-
     const methods = useForm({
         mode: 'all',
-        resolver: yupResolver(currentValidationSchema)
     });
 
     useEffect(() => {
@@ -74,7 +63,7 @@ export default function Donate() {
         if (!stripe || !elements) return; // stripe not ready
         try {
             const cardElement = elements.getElement(CardNumberElement);
-            const paymentResult = await stripe.confirmCardPayment(basket?.clientSecret!, {
+            const paymentResult = await stripe.confirmCardPayment({
                 payment_method: {
                     card: cardElement!,
                     billing_details: {
