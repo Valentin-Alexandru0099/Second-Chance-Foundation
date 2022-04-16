@@ -1,7 +1,9 @@
 
 import { AppBar, Badge, IconButton, List, ListItem, Switch, Toolbar, Typography, Box } from "@mui/material";
 import { Link, NavLink } from "react-router-dom";
+import { useAppSelector } from "../../features/store/configureStore";
 import '../Navbar/Navbar.css'
+import SignedInMenu from "../SignedInMenu";
 
 const midLinks=[
     {title: 'meetings', path: '/meetings'},
@@ -19,7 +21,8 @@ const rightLinks=[
 
 
 export default function Navbar() {
-
+    const { user } = useAppSelector(state => state.account);
+    
     return (
         <>
             <AppBar position="static" sx={{mb: 4}}>
@@ -47,9 +50,9 @@ export default function Navbar() {
 
                 <Box display='flex' alignItems='center'>
             
-                {/* {user ? (
+                {user ? (
                     <SignedInMenu></SignedInMenu>
-                ):( */}
+                ):(
                     <List sx={{display:'flex', fontFamily: 'Raleway',
                     fontWeight: 700}}>
                     {rightLinks.map(({title, path})=> (
@@ -63,7 +66,7 @@ export default function Navbar() {
                         </ListItem>
                     ))}
                 </List>
-                
+                )}
                 
                 </Box>
 

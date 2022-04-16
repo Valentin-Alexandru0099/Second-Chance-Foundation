@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import { useAppSelector } from '../../features/store/configureStore';
 import { Job, Organization } from '../../features/models/job';
 import './JobCards.css';
+import MarkChatReadIcon from '@mui/icons-material/MarkChatRead';
 
 
 interface Props {
@@ -56,10 +57,9 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function CustomizedAccordions({ job,organization }: Props) {
-    console.log(job);
-    console.log(organization);
     const { jobsLoaded } = useAppSelector(state => state.job);
   const [expanded, setExpanded] = React.useState<string | false>('panel1');
+  console.log(job)
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -70,7 +70,7 @@ export default function CustomizedAccordions({ job,organization }: Props) {
     <div>
       <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">    
-          <Typography>Job title : {job.name}</Typography>
+          <Typography>Job title : {job.name}<MarkChatReadIcon/></Typography>
         </AccordionSummary>
         <AccordionDetails>
         <Typography>
@@ -91,14 +91,11 @@ export default function CustomizedAccordions({ job,organization }: Props) {
       </Accordion>
       <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography>Collapsible Group Item #3</Typography>
+          <Typography>Company Description</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
+            {job.organization.description}
           </Typography>
         </AccordionDetails>
       </Accordion>

@@ -5,6 +5,7 @@ import { fetchJobsAsync, jobSelectors } from "./jobSlice";
 import JobList from "./JobList";
 import { fetchOrganizationsAsync, organizationsSelectors } from "./organizationSlice";
 
+
 export default function Jobpage() {
     const jobs = useAppSelector(jobSelectors.selectAll);
     const organizations = useAppSelector(organizationsSelectors.selectAll);
@@ -23,7 +24,9 @@ export default function Jobpage() {
     return (
         <>
             <h1 className="jobstitle">Available Jobs</h1>
+            <div className="cont">
             <JobList jobs={jobs} organization={organizations} />
+            </div>
         </>
     )
 }

@@ -16,6 +16,8 @@ import { useAppDispatch } from './features/store/configureStore';
 import { fetchCurrentUser } from './pages/account/accountSlice';
 import { fetchJobsAsync } from './pages/job/jobSlice';
 import Meetings from './pages/meetings/Meetings';
+import PrivateRoute from './components/PrivateRoute';
+import Profile from './pages/profile/Profile';
 
 export default function App() {
 
@@ -49,6 +51,8 @@ export default function App() {
         <Route exact path='/register' component={Register}></Route>
         <Route exact path='/jobs' component={Jobpage}></Route>
         <Route exact path='/meetings' component={Meetings}></Route>
+        {/* <PrivateRoute path='/applications' component={Applications} /> */}
+        <PrivateRoute path='/profile' component={Profile} />
         </Switch>
       <Footer/>
         
