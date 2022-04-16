@@ -28,7 +28,7 @@ export default function Article(){
         <>
         <div className="articlecards">
         {articles?.map((article) => (
-                    <Card sx={{ maxWidth: 600 }}>
+                    <Card>
                     <CardMedia
                       component="img"
                       alt="green iguana"

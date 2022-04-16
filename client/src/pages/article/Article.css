@@ -3,7 +3,7 @@
 }
 
 .css-r40f8v-MuiTypography-root{
-    overflow: scroll;
+    overflow-y: scroll;
     max-height: 300px;
 }
 
@@ -11,4 +11,5 @@
     flex-direction: row;
     display: flex;
     flex-direction: row;
+    margin-bottom: 150px;;
 }

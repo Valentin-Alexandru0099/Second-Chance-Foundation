@@ -36,8 +36,8 @@ export default function Homepage(){
                 <source src={second} type="video/mp4" />
                 </video>
             </div>
-            <Article/>
         </div>
+        <Article/>
         
                 
 
