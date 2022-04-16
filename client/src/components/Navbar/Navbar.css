@@ -107,3 +107,9 @@
   .css-1lnam2o-MuiListItem-root{
     font-weight: 900 !important;
   }
+
+  .logo{
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.7em;
+  }
