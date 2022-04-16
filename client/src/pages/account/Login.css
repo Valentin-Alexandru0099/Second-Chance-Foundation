@@ -1,0 +1,27 @@
+.css-1p4xf4t-MuiPaper-root-MuiContainer-root{
+    margin: 100px;
+}
+
+.css-1999axt-MuiAvatar-root{
+    background-color: #5027bb !important;
+}
+
+.registerlink{
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    margin: 10px;
+}
+
+.css-17vbkzs-MuiFormControl-root-MuiTextField-root{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 300px !important;
+}
+
+.registerlink:hover{
+    /* width: 200px; */
+    color: rgb(0, 128, 240);
+}

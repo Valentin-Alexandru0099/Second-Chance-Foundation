@@ -58,7 +58,7 @@ namespace API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<int?>("OrganizationId")
+                    b.Property<int>("OrganizationId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("SubmissionTime")
@@ -85,14 +85,8 @@ namespace API.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<TimeOnly>("EndTime")
-                        .HasColumnType("time without time zone");
-
                     b.Property<string>("Name")
                         .HasColumnType("text");
-
-                    b.Property<TimeOnly>("StartTime")
-                        .HasColumnType("time without time zone");
 
                     b.Property<int>("Status")
                         .HasColumnType("integer");
@@ -235,15 +229,15 @@ namespace API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "aa0b7d80-5fc5-4430-9627-396eb55de89e",
-                            ConcurrencyStamp = "9c705173-6e9c-4a6f-ba95-010c48a41d8c",
+                            Id = "45358e8a-7820-48f0-a689-1ba406c5844b",
+                            ConcurrencyStamp = "1773bd14-c225-48a9-a4d7-62ef0e13a4e5",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
-                            Id = "7d3417d6-fd1e-46c5-8be3-75bec1c7cfb8",
-                            ConcurrencyStamp = "1cfee17f-e872-4a2f-807a-a8336f02d590",
+                            Id = "b6001d35-3f59-4743-a24a-3cd362643066",
+                            ConcurrencyStamp = "e163abb5-0d66-4123-a883-0a914ea37093",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -358,8 +352,10 @@ namespace API.Migrations
             modelBuilder.Entity("API.Entities.Job", b =>
                 {
                     b.HasOne("API.Entities.Organization", "Organization")
-                        .WithMany()
-                        .HasForeignKey("OrganizationId");
+                        .WithMany("Jobs")
+                        .HasForeignKey("OrganizationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Organization");
                 });
@@ -413,6 +409,11 @@ namespace API.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("API.Entities.Organization", b =>
+                {
+                    b.Navigation("Jobs");
                 });
 #pragma warning restore 612, 618
         }

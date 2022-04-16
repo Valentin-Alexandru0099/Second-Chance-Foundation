@@ -1,6 +1,7 @@
 ﻿// using API.Data;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -28,7 +29,8 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -110,6 +112,7 @@ namespace API
 
             app.UseAuthentication();
             app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

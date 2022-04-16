@@ -10,6 +10,7 @@ namespace API.Entities
         public DateTime SubmissionTime { get; set; }
 
         public bool Available { get; set; }
+        public int OrganizationId { get; set; }
         public Organization Organization { get; set; }
 
     }

@@ -17,7 +17,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Job>>> GetAllJobs()
         {
-            return await _context.Jobs.ToListAsync();
+            return await _context.Jobs.Include(j => j.Organization).ToListAsync();
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<Job>> GetJob(int id)
@@ -27,6 +27,7 @@ namespace API.Controllers
             return job;
 
         }
+
 
     }
 }

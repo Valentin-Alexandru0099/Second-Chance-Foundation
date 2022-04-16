@@ -1,0 +1,30 @@
+.css-i4bv87-MuiSvgIcon-root{
+    color:rgb(15, 178, 15) !important;
+    /* margin-left:15px; */
+}
+
+.cont{
+    display: inline-grid;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.css-480o17-MuiGrid-root{
+    margin-bottom: 100px;
+}
+
+.jobstitle{
+    margin: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .css-480o17-MuiGrid-root{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+    }
+}

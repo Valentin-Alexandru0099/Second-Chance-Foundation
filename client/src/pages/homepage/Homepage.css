@@ -1,0 +1,39 @@
+.homepageimg{
+    height:1000px;
+    margin-top: 0 !important;
+}
+
+.homepagetxt{
+    text-align: left;
+    margin:30px;
+    font-size: 2em;
+    /* width:350px; */
+    margin-left: 200px;
+    margin-right: 200px;
+    display:flex;
+    gap: 100px;
+}
+
+.video{
+    height:500px;
+}
+
+.videop{
+    border-radius: 100px;;
+}
+
+.btn{
+    position: absolute;
+  top: 40%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
