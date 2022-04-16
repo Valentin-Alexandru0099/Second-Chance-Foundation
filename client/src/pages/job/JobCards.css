@@ -18,3 +18,13 @@
 .jobstitle{
     margin: 50px;
 }
+
+@media only screen and (max-width: 600px) {
+    .css-480o17-MuiGrid-root{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+    }
+}
