@@ -31,7 +31,7 @@ export default function Navbar() {
             <Box display='flex' alignItems='center'>
                 <Typography variant="h6" component={NavLink} to='/' exact
                  sx={{color: 'black', textDecoration:'none',fontFamily: 'Raleway',fontWeight: 700}}>
-                   <Typography variant='h5'>Second chance</Typography>
+                   <h5 className="logo">Second chance</h5>
                 </Typography>
 
             </Box>
@@ -60,8 +60,7 @@ export default function Navbar() {
                         component={NavLink}
                         to={path}
                         key={path}
-                        sx={{fontFamily: 'Raleway',
-                        fontWeight: 700}}>
+                        >
                             {title.toUpperCase()}
                         </ListItem>
                     ))}

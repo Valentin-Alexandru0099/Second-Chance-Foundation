@@ -53,7 +53,7 @@ export default function Footer(){
                         <Grid item xs={12} sm={4}>
                             <Box borderBottom={1}><Typography variant='h5' className="footertitle">Contact</Typography></Box>
                             <Box sx={{ p: 1}}>
-                                <a href="tel:" className="footerlinks">Telefon</a>
+                                <a href="tel:" className="footerlinks">Phone</a>
                             </Box>
                             <Box sx={{ p: 1}}>
                                 <a href="https://wa.me/" className="footerlinks" target="_blank">

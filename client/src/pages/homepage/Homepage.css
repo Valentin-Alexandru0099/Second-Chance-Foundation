@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
 .homepageimg{
     height:1000px;
     margin-top: 0 !important;
@@ -12,6 +14,7 @@
     margin-right: 200px;
     display:flex;
     gap: 100px;
+    font-family: 'Lato', sans-serif;
 }
 
 .video{
@@ -28,7 +31,7 @@
   left: 45%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #555;
+  background-color: #ecb500;
   color: white;
   font-size: 16px;
   padding: 12px 24px;
