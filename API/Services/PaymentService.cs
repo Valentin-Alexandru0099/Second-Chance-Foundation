@@ -32,7 +32,7 @@ namespace API.Services
 
             var options = new PaymentIntentCreateOptions
             {
-                Amount = (long)donationAmount,
+                Amount = donationAmount,
                 Currency = "USD",
                 PaymentMethodTypes = new List<string> {"card"}
             };
