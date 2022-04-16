@@ -1,15 +1,16 @@
-import { Card, CardMedia, CardContent, Typography, CardActions, Button } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography, CardActions, Button, ButtonBase, Link } from "@mui/material";
 import { useEffect, useState } from "react";
 import LoadingComponent from "../../components/LoadingComponent";
 import agent from "../../features/api/agent";
 import { Meeting } from "../../features/models/meeting";
+import happy from '../../images/jobs.jpg'
+import './Meetings.css'
 
 
 
 export default function Meetings(){
     const [meetings, setMeetings] = useState<Meeting[] | null>(null);
     const [loading, setLoading] = useState(true);
-    const [selectedOrderNumber, setSelectedOrderNumber] = useState(0);
 
     useEffect(() => {
         agent.Meetings.list()
@@ -25,13 +26,15 @@ export default function Meetings(){
     return(
         <>
         <h1>Meetings</h1>
+        <div className="meetingcards">
         {meetings?.map((meeting) => (
-                    <Card sx={{ maxWidth: 345 }}>
+                    <Card sx={{ maxWidth: 600 }}>
                     <CardMedia
                       component="img"
                       alt="green iguana"
                       height="140"
-                      image="/static/images/cards/contemplative-reptile.jpg"
+                      image={happy}
+                      key={meeting.id}
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
@@ -42,11 +45,11 @@ export default function Meetings(){
                       </Typography>
                     </CardContent>
                     <CardActions>
-                      <Button size="small">Share</Button>
-                      <Button size="small">Learn More</Button>
+                      <a href='https://meet.google.com/phn-zdmo-kox' className="meetlink">Join meet</a>
                     </CardActions>
                   </Card>
             ))}
+            </div>
         </>
     )
 }
