@@ -7,14 +7,25 @@
 
 .mapdiv{
     margin-bottom: 150px;
-    margin-top: 0px;
+    margin-top: 0px !important;
 }
 
 .centerdiv{
-    display: inline-flex;
+
 }
 
 .phonetext{
     margin-bottom: 10px;
     font-size: 1.2em;
+}
+
+.bigdiv{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4em;
+    gap:20px;
+    margin-bottom: 50px;
 }
