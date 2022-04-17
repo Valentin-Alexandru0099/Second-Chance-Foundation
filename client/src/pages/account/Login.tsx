@@ -24,7 +24,7 @@ export default function Login() {
     async function submitForm(data: FieldValues) {
         try {
             await dispatch(signInUser(data));
-            history.push(location.state?.from?.pathname ||  '/catalog');
+            history.push(location.state?.from?.pathname ||  '/');
         } catch (error) {
             console.log(error);
         }
@@ -64,6 +64,7 @@ export default function Login() {
                     fullWidth
                     variant="contained"
                     sx={{ mt: 3, mb: 2 }}
+                    
                 >
                     Sign In
                 </LoadingButton>

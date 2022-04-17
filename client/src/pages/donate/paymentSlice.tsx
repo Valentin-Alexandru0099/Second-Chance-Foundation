@@ -6,10 +6,10 @@ import { RootState } from "../../features/store/configureStore";
 const paymentsAdapter = createEntityAdapter<Payment>();
 
 export const fetchPaymentsAsync = createAsyncThunk<Payment[]>(
-    'job/GetAllJobs',
+    'payments/GetClientSecret',
     async (_, thunkAPI) => {
         try {
-            return await agent.Payments.createPaymentIntent();
+            return await agent.Payments.getClientSecret();
         } catch (error: any) {
             return thunkAPI.rejectWithValue({error: error.data})
         }
@@ -19,12 +19,16 @@ export const fetchPaymentsAsync = createAsyncThunk<Payment[]>(
 
 
 export const paymentSlice = createSlice({
-    name: 'job',
+    name: 'payments',
     initialState: paymentsAdapter.getInitialState({
-        paymentsLoaded: false,
+        paymentsLoaded: null,
         status: 'idle'
     }),
-    reducers: {},
+    reducers: {
+        setPayments: (state, action) => {
+            state.paymentsLoaded = action.payload
+        },
+    },
     extraReducers: (builder => {
         builder.addCase(fetchPaymentsAsync.pending, (state) => {
             state.status = 'pendingFetchJobs';
@@ -32,7 +36,6 @@ export const paymentSlice = createSlice({
         builder.addCase(fetchPaymentsAsync.fulfilled, (state, action) => {
             paymentsAdapter.setAll(state, action.payload);
             state.status = 'idle';
-            state.paymentsLoaded = true;
         });
         builder.addCase(fetchPaymentsAsync.rejected, (state, action) => {
             console.log(action.payload);
@@ -41,4 +44,4 @@ export const paymentSlice = createSlice({
     })
 })
 
-export const paymentSelectors = paymentsAdapter.getSelectors((state: RootState) => state.payment);
+export const {setPayments} = paymentSlice.actions;

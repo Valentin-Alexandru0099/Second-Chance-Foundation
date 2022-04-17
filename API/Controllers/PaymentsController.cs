@@ -13,7 +13,7 @@
 //namespace API.Controllers
 //{
 //    public class PaymentsController : BaseApiController
-//    {
+//    { 
 //        private readonly PaymentService _paymentService;
 //        public PaymentsController(PaymentService paymentService)
 //        {
@@ -73,7 +73,7 @@ namespace API.Controllers
         {
             _paymentService = paymentService;
 
-        }//Autorize
+        }
         [HttpGet]
         public async Task<ActionResult> Get()
         {

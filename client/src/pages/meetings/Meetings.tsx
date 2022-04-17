@@ -28,7 +28,7 @@ export default function Meetings(){
         <h1>Meetings</h1>
         <div className="meetingcards">
         {meetings?.map((meeting) => (
-                    <Card sx={{ maxWidth: 600 }}>
+                    <Card sx={{ maxWidth: 600 }} key={meeting.id}>
                     <CardMedia
                       component="img"
                       alt="green iguana"

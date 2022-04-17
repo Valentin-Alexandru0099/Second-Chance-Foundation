@@ -1,183 +1,58 @@
-// import { Box, Button, Paper, Step, StepLabel, Stepper, Typography } from "@mui/material";
-// import { useEffect, useState } from "react";
-// import { FieldValues, FormProvider, useForm } from "react-hook-form";
-// import PaymentForm from "./PaymentForm";
-// import { LoadingButton } from "@mui/lab";
-// import { StripeElementType } from "@stripe/stripe-js";
-// import AddressForm from "./AdressForm";
-// import agent from "../../features/api/agent";
-// import { useAppDispatch, useAppSelector } from "../../features/store/configureStore";
-// import CardNumberElement from "@stripe/react-stripe-js";
-// import { useStripe } from "@stripe/react-stripe-js";
-// import { useElements } from "@stripe/react-stripe-js";
-
-// const steps = ['Shipping address', 'Review your order', 'Payment details'];
-
-// export default function Donate() {
-//     const [activeStep, setActiveStep] = useState(0);
-//     const [orderNumber, setOrderNumber] = useState(0);
-//     const [loading, setLoading] = useState(false);
-//     const dispatch = useAppDispatch();
-//     const [cardState, setCardState] = useState<{ elementError: { [key in StripeElementType]?: string } }>({ elementError: {} });
-//     const [cardComplete, setCardComplete] = useState<any>({ cardNumber: false, cardExpiry: false, cardCvc: false });
-//     const [paymentMessage, setPaymentMessage] = useState('');
-//     const [paymentSucceeded, setPaymentSucceeded] = useState(false);
-//     const stripe = useStripe();
-//     const elements = useElements();
-
-//     function onCardInputChange(event: any) {
-//         setCardState({
-//             ...cardState,
-//             elementError: {
-//                 ...cardState.elementError,
-//                 [event.elementType]: event.error?.message
-//             }
-//         })
-//         setCardComplete({ ...cardComplete, [event.elementType]: event.complete });
-//     }
-
-//     function getStepContent(step: number) {
-//         switch (step) {
-//             case 0:
-//                 return <AddressForm />;
-//             case 1:
-//                 return <PaymentForm cardState={cardState} onCardInputChange={onCardInputChange} />;
-//             default:
-//                 throw new Error('Unknown step');
-//         }
-//     }
-
-   
-
-//     const methods = useForm({
-//         mode: 'all',
-
-//     });
-
-//     useEffect(() => {
-//         agent.Account.fetchAddress()
-//             .then(response => {
-//                 if (response) {
-//                     methods.reset({ ...methods.getValues(), ...response, saveAddress: false })
-//                 }
-//             })
-//     }, [methods])
-
-//     async function submitOrder(data: FieldValues) {
-//         var clientSecret = await agent.Payments.getClientSecret();
-//         console.log(clientSecret);
-//         setLoading(true);
-//         const { nameOnCard, saveAddress, ...shippingAddress } = data;
-//         if (!stripe || !elements) return; // stripe not ready
-//         try {
-//             const cardElement = elements.getElement(CardNumberElement);
-//             const paymentResult = await stripe.confirmCardPayment(await clientSecret!, {
-//                 payment_method: {
-//                     card: cardElement!,
-//                     billing_details: {
-//                         name: nameOnCard
-//                     }
-//                 }
-//             });
-//             console.log(paymentResult);
-//             if (paymentResult.paymentIntent?.status === 'succeeded') {
-//                 setOrderNumber(orderNumber);
-//                 setPaymentSucceeded(true);
-//                 setPaymentMessage('Thank you - we have received your payment');
-//                 setActiveStep(activeStep + 1);
-//                 setLoading(false);
-//             } else {
-//                 setPaymentMessage(paymentResult.error?.message!);
-//                 setPaymentSucceeded(false);
-//                 setLoading(false);
-//                 setActiveStep(activeStep + 1);
-//             }
-//         } catch (error) {
-//             console.log(error);
-//             setLoading(false);
-//         }
-//     }
+import './Donate.css';
+import donate from '../../images/donate.mp4'
 
 
-//     const handleNext = async (data: FieldValues) => {
-//         if (activeStep === steps.length - 1) {
-//             await submitOrder(data);
-//         } else {
-//             setActiveStep(activeStep + 1);
-//         }
-//     };
 
-//     const handleBack = () => {
-//         setActiveStep(activeStep - 1);
-//     };
+export default function Donate(){
+    return(
+        <>
+        
+<div className='divdonate'>
+        <video autoPlay="autoplay" loop="loop"  width="800" height="700" className='videod'>
+                <source src={donate} type="video/mp4" />
+    </video>
+    
+    <p className='donatetext'><h2>Donate</h2>Support us in helping people in need. We envision a world where persons with disabilities fully participate in society and enjoy equal rights and opportunities.
+         Your donation today supports this vision! 
+         We strive to promote an inclusive society through holistic and sustainable endeavors in the areas of education and economic empowerment.
+         <div className='donatebutton'>
+        <a href="https://checkout.stripe.com/pay/cs_test_a1HPyOEjzzWFHZQM7MXO8PZVtQpUFcMvgorei15mGKkIiz4uzUB8jSJQj1#fidkdWxOYHwnPyd1blpxYHZxWjA0TnU9Q0hDX1VJZzdNYzNVTnxEUWd1MldBRnFhd2MwYjMzRmxsQWhvbGREUUcwSGAxV0FnR3VkMTc8Z0Y9SHI1fVJTbHBDYDx%2FM2FNXWFRUGl%2FYTBjdUFuNTVEPDY9Q2pHPScpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVowbkQxbWk3cTQwV242aGI0MTEneCUl" class="button" target="_blank">
+        {/* <a href="https://checkout.stripe.com/pay/cs_test_a1HPyOEjzzWFHZQM7MXO8PZVtQpUFcMvgorei15mGKkIiz4uzUB8jSJQj1#fidkdWxOYHwnPyd1blpxYHZxWjA0TnU9Q0hDX1VJZzdNYzNVTnxEUWd1MldBRnFhd2MwYjMzRmxsQWhvbGREUUcwSGAxV0FnR3VkMTc8Z0Y9SHI1fVJTbHBDYDx%2FM2FNXWFRUGl%2FYTBjdUFuNTVEPDY9Q2pHPScpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVowbkQxbWk3cTQwV242aGI0MTEneCUl" className="donate">
+        </a> */}
+  <span class="button__text">
+    <span>D</span><span>O</span>N</span><span></span><span>A</span><span>T</span><span>E</span>
+  <svg class="button__svg" role="presentational" viewBox="0 0 600 600">
+    <defs>
+      <clipPath id="myClip">
+        <rect x="0" y="0" width="100%" height="50%" />
+      </clipPath>
+    </defs>
+    <g clip-path="url(#myClip)">
+      <g id="money">
+        <path d="M441.9,116.54h-162c-4.66,0-8.49,4.34-8.62,9.83l.85,278.17,178.37,2V126.37C450.38,120.89,446.56,116.52,441.9,116.54Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+        <path d="M424.73,165.49c-10-2.53-17.38-12-17.68-24H316.44c-.09,11.58-7,21.53-16.62,23.94-3.24.92-5.54,4.29-5.62,8.21V376.54H430.1V173.71C430.15,169.83,427.93,166.43,424.73,165.49Z" fill="#699e64" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+      </g>
+      <g id="creditcard">
+        <path d="M372.12,181.59H210.9c-4.64,0-8.45,4.34-8.58,9.83l.85,278.17,177.49,2V191.42C380.55,185.94,376.75,181.57,372.12,181.59Z" fill="#a76fe2" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+        <path d="M347.55,261.85H332.22c-3.73,0-6.76-3.58-6.76-8v-35.2c0-4.42,3-8,6.76-8h15.33c3.73,0,6.76,3.58,6.76,8v35.2C354.31,258.27,351.28,261.85,347.55,261.85Z" fill="#ffdc67" />
+        <path d="M249.73,183.76h28.85v274.8H249.73Z" fill="#323c44" />
+      </g>
+    </g>
+    <g id="wallet">
+      <path d="M478,288.23h-337A28.93,28.93,0,0,0,112,317.14V546.2a29,29,0,0,0,28.94,28.95H478a29,29,0,0,0,28.95-28.94h0v-229A29,29,0,0,0,478,288.23Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+      <path d="M512.83,382.71H416.71a28.93,28.93,0,0,0-28.95,28.94h0V467.8a29,29,0,0,0,28.95,28.95h96.12a19.31,19.31,0,0,0,19.3-19.3V402a19.3,19.3,0,0,0-19.3-19.3Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+      <path d="M451.46,435.79v7.88a14.48,14.48,0,1,1-29,0v-7.9a14.48,14.48,0,0,1,29,0Z" fill="#a4bdc1" stroke="#323c44" stroke-miterlimit="10" stroke-width="14" />
+      <path d="M147.87,541.93V320.84c-.05-13.2,8.25-21.51,21.62-24.27a42.71,42.71,0,0,1,7.14-1.32l-29.36-.63a67.77,67.77,0,0,0-9.13.45c-13.37,2.75-20.32,12.57-20.27,25.77l.38,221.24c-1.57,15.44,8.15,27.08,25.34,26.1l33-.19c-15.9,0-28.78-10.58-28.76-25.93Z" fill="#7b8f91" />
+      <path d="M148.16,343.22a6,6,0,0,0-6,6v92a6,6,0,0,0,12,0v-92A6,6,0,0,0,148.16,343.22Z" fill="#323c44" />
+    </g>
 
-//     function submitDisabled(): boolean {
-//         if (activeStep === steps.length - 1) {
-//             return !cardComplete.cardCvc
-//                 || !cardComplete.cardExpiry
-//                 || !cardComplete.cardNumber
-//                 || !methods.formState.isValid
-//         } else {
-//             return !methods.formState.isValid
-//         }
-//     }
+  </svg>
+</a>
+</div></p>
 
-//     return (
-//         <FormProvider {...methods}>
-//             <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
-//                 <Typography component="h1" variant="h4" align="center">
-//                     Checkout
-//                 </Typography>
-//                 <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
-//                     {steps.map((label) => (
-//                         <Step key={label}>
-//                             <StepLabel>{label}</StepLabel>
-//                         </Step>
-//                     ))}
-//                 </Stepper>
-//                 <>
-//                     {activeStep === steps.length ? (
-//                         <>
-//                             <Typography variant="h5" gutterBottom>
-//                                 {paymentMessage}
-//                             </Typography>
-//                             {paymentSucceeded ? (
-//                                 <Typography variant="subtitle1">
-//                                     Your order number is. We have not emailed your order
-//                                     confirmation, and will not send you an update when your order has
-//                                     shipped as this is a fake store!
-//                                 </Typography>
-//                             ) : (
-//                                 <Button variant='contained' onClick={handleBack}>
-//                                     Go back and try again
-//                                 </Button>
-//                             )}
+    </div>
+        </>
+        
 
-//                         </>
-//                     ) : (
-//                         <form onSubmit={methods.handleSubmit(handleNext)}>
-//                             {getStepContent(activeStep)}
-//                             <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-//                                 {activeStep !== 0 && (
-//                                     <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-//                                         Back
-//                                     </Button>
-//                                 )}
-//                                 <LoadingButton
-//                                     loading={loading}
-//                                     disabled={submitDisabled()}
-//                                     variant="contained"
-//                                     type='submit'
-//                                     sx={{ mt: 3, ml: 1 }}
-//                                 >
-//                                     {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-//                                 </LoadingButton>
-//                             </Box>
-//                         </form>
-//                     )}
-//                 </>
-//             </Paper>
-//         </FormProvider>
-
-//     );
-// }
+    )
+}

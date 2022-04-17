@@ -1,11 +1,11 @@
-import { Card, CardMedia, CardContent, Typography, CardActions, Button, ButtonBase, Link } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography} from "@mui/material";
 import { useEffect, useState } from "react";
 import LoadingComponent from "../../components/LoadingComponent";
 import agent from "../../features/api/agent";
 import happy from '../../images/jobs.jpg';
 import { Articles } from "../../features/models/article";
 import './Article.css';
-import AliceCarousel from 'react-alice-carousel';
+
 
 
 
@@ -28,7 +28,7 @@ export default function Article(){
         <>
         <div className="articlecards">
         {articles?.map((article) => (
-                    <Card>
+                    <Card key={article.id}>
                     <CardMedia
                       component="img"
                       alt="green iguana"
