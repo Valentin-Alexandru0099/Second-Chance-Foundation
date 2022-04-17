@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -7,6 +8,8 @@ using API.Data;
 using API.DTOs;
 using API.Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,12 +18,16 @@ namespace API.Controllers
     public class AccountController : BaseApiController
     {
         private readonly UserManager<User> _userManager;
+        private readonly IWebHostEnvironment _hostEnvironment;
         private readonly TokenService _tokenService;
-        public AccountController(UserManager<User> userManager, TokenService tokenService)
+        private readonly StoreContext context;
+        public AccountController(UserManager<User> userManager, TokenService tokenService, IWebHostEnvironment hostEnvironment)
         {
             _tokenService = tokenService;
             _userManager = userManager;
-            
+            _hostEnvironment = hostEnvironment;
+
+
         }
 
         [HttpPost("login")]
@@ -71,6 +78,20 @@ namespace API.Controllers
                 Token = await _tokenService.GenerateToken(user)
             };
         }
-        
+
+
+        [HttpPost("ImportFile")]
+        public async Task<IActionResult> ImportFile([FromForm] IFormFile file)
+        {
+            string name = file.FileName;
+            string extension = Path.GetExtension(file.FileName);
+            //read the file
+            using (var memoryStream = new MemoryStream())
+            {
+                file.CopyTo(memoryStream);
+            }
+            //do something with the file here
+        }
+
     }
 }

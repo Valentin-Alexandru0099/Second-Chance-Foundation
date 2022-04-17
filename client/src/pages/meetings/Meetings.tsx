@@ -20,7 +20,7 @@ export default function Meetings(){
     }, [])
 
 
-    if (loading) return <LoadingComponent message='Loading orders' />
+    if (loading) return <LoadingComponent message='Loading meetings' />
 
     
     return(

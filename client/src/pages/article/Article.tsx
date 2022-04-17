@@ -21,7 +21,7 @@ export default function Article(){
     }, [])
 
 
-    if (loading) return <LoadingComponent message='Loading orders' />
+    if (loading) return <LoadingComponent message='Loading articles' />
 
     
     return(
