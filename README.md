@@ -3,7 +3,7 @@
   
   <div>
   <p>:heart: It is a web application made for an NGO, participated in a hackaton and won 2nd prize.</p>
-  <p>:orange_heart: It has 5 pages: homepage, meetings, about, contact, jobs, donate, login, register. </p>
+  <p>:orange_heart: It has 8 pages: homepage, meetings, about, contact, jobs, donate, login, register. </p>
   <p>:yellow_heart: On the home page there is a small about section with video, under it there are cards with articles. </p>
   <p>:green_heart: The meetings page contains cards with meetings, description, and google meets link. </p>
   <p>:blue_heart: The about page contains a big video, and sections with pictures and text.</p>
